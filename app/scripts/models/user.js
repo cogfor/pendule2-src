@@ -34,13 +34,16 @@ Paperapp.Models = Paperapp.Models || {};
 					xhr.setRequestHeader('X-BAASBOX-APPCODE', APPCONF.BAAS_APP_CODE);
 					xhr.setRequestHeader("Authentication", "Basic " + Base64.encode(loginData.username + ':' + loginData.password));
 				},
+				
 				data : $.extend(loginData, {
 					appcode : APPCONF.BAAS_APP_CODE
 				}),
+				
 				success : function(data){
 					data = JSON.parse(data);
 					
 					self.set('session', data.data["X-BB-SESSION"]);
+					
 					self.set('username', loginData.username);
 					self.set('password', loginData.password);
 					
@@ -53,12 +56,17 @@ Paperapp.Models = Paperapp.Models || {};
 						callback();
 					}
 				},
+				
 				error : function(data){
 					//console.log(data);
+					self.trigger('loginFailed', loginData);
+					
 					if (callback) {
 						callback();
 					}
-					Paperapp.views.appView.popup('Login error', '', false);
+					if (! silently) {
+						Paperapp.views.appView.popup('Login error', '', false);
+					}
 				}
 			});
 		},
@@ -77,9 +85,12 @@ Paperapp.Models = Paperapp.Models || {};
 					xhr.setRequestHeader("Authentication", "Basic " + Base64.encode(signupData.username + ':' + signupData.password));
 				},
 				
-				data : JSON.stringify($.extend(signupData, {
-					appcode : APPCONF.BAAS_APP_CODE
-				})),
+				data : JSON.stringify({
+					username : signupData.username,
+					password : signupData.password,
+					appcode : APPCONF.BAAS_APP_CODE,
+					visibleByTheUser : { "email" : signupData.email }
+				}),
 				
 				success : function(data){
 					//console.log(data);
@@ -135,7 +146,7 @@ Paperapp.Models = Paperapp.Models || {};
 			
 			$.ajax({
 				url : APPCONF.URLS.CHANGEPASS,
-				type : 'POST',
+				type : 'PUT',
 				dataType : 'JSON',
 				contentType : 'application/json',
 				beforeSend : function(xhr){
@@ -148,6 +159,7 @@ Paperapp.Models = Paperapp.Models || {};
 				
 				success : function(){
 					Paperapp.views.appView.popup('Your password changed', '', true);
+					self.set('password', changepassData['new']);
 					
 					self.trigger('passwordUpdated', []);
 				},

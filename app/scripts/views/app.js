@@ -57,6 +57,14 @@ Paperapp.Views = Paperapp.Views || {};
 				Paperapp.models.userModel.login({ username : signupData.username, password : signupData.password }, true);
 			});
 			
+			// save username and password to local storage
+			Paperapp.models.userModel.on('change:username', function(){
+				localStorage.setItem('_username', Paperapp.models.userModel.get('username'));
+			});
+			Paperapp.models.userModel.on('change:password', function(){
+				localStorage.setItem('_password', Paperapp.models.userModel.get('password'));
+			});
+			
 			/* 
 			 * on login update user name on main page
 			 * and save username and password in local storage to use it on later runs
@@ -65,9 +73,10 @@ Paperapp.Views = Paperapp.Views || {};
 			Paperapp.models.userModel.on('loginComplete', function(loginData){
 				self.updateUserName();
 				
-				localStorage.setItem('_username', loginData.username);
-				localStorage.setItem('_password', loginData.password);
-				
+				Paperapp.views.settingsView.render();
+			});
+			
+			Paperapp.models.userModel.on('loginFailed', function(loginData){
 				Paperapp.views.settingsView.render();
 			});
 			
@@ -78,6 +87,11 @@ Paperapp.Views = Paperapp.Views || {};
 				
 				self.updateUserName();
 				Paperapp.views.settingsView.render();
+			});
+			
+			// password changed - need to call login again
+			Paperapp.models.userModel.on('passwordUpdated', function(loginData){
+				Paperapp.models.userModel.login({ username : localStorage.getItem('_username'), password : localStorage.getItem('_password') }, true);
 			});
 		},
 		
