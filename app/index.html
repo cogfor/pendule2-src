@@ -18,8 +18,79 @@
     </head>
     <body>
         <div id="afui">
-		
+			<div id="header">
+				<h1 id="pageTitle">Demo App</h1>
+			</div>
+			
+			<div id="content">
+				<div title="Main page" class="panel" selected="true" id="main">
+					<!-- a href="#" onclick="$.ui.toggleSideMenu(true)">open side menu</a -->
+					<h2 class="username"></h2>
+				</div>
+				
+				<!-- signup page -->
+				<div class="panel" title="Create account" id="signup-page">
+					<form id="signup-form" action="." method="post" class="form m-signup">
+						<div class="clearfix">
+							<label class="form_label">Enter your username</label>
+							<input class="input-text" type="text" name="username" id="signup-name" data-placeholder="" />
+							
+							<label class="form_label">Enter your email</label>
+							<input class="input-text" type="text" name="email" id="signup-email" data-placeholder="" />
+							
+							<label class="form_label">Enter your password</label>
+							<input class="input-text" type="password" name="password" id="signup-password" />
+						</div>
+						
+						<input type="submit" value="Create account" class="button" />
+					</form>
+				</div>
+				
+				<!-- login page -->
+				<div class="panel" title="Login into your account" id="login-page">
+					<form id="login-form" action="." method="post" class="form m-login">
+						<div class="clearfix">
+							<label class="form_label">Username</label>
+							<input class="input-text" type="text" name="username" id="login-name" data-placeholder="" />
+							
+							<label class="form_label">Password</label>
+							<input class="input-text" type="password" name="password" id="login-password" />
+						</div>
+						
+						<input type="submit" value="Login" class="button" />
+					</form>
+				</div>
+				
+				<div class="panel" title="Login into your account" id="changepass-page">
+					<form id="changepass-form" action="." method="post" class="form m-changepass">
+						<div class="clearfix">
+							<label class="form_label">Enter your old password</label>
+							<input class="input-text" type="password" name="old" />
+							
+							<label class="form_label">Enter your new password</label>
+							<input class="input-text" type="password" name="new" />
+						</div>
+						
+						<input type="submit" value="Change password" class="button" />
+					</form>
+				</div>
+				
+				<div class="panel" title="Reset your password" id="resetpass-page">
+					<form id="resetpass-form" action="." method="post" class="form m-resetpass">
+						<div class="clearfix">
+							<label class="form_label">Enter your username</label>
+							<input class="input-text" type="text" name="username" />
+						</div>
+						
+						<input type="submit" value="Reset password" class="button" />
+					</form>
+				</div>
+			</div>
+			
+			<!-- settings nav goes here -->
+			<nav title="Settings page" id="settings"></nav>
         </div>
+		
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -29,18 +100,27 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-
+		
+		<script type="text/javascript" src="cordova.js"></script>
+		
         <!-- build:js scripts/vendor.js -->
-        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/intel-appframework/appframework.min.js"></script>
+		<script src="bower_components/intel-appframework/ui/appframework.ui.min.js"></script>
+		<script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/handlebars/handlebars.js"></script>
-		<script src="bower_components/intel-appframework/appframework.min.js"></script>
+		<script src="scripts/vendor/underscore.def.js"></script>
+		<script src="scripts/vendor/base64.js"></script>
         <!-- endbuild -->
-
+		
         <!-- build:js({.tmp,app}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/templates.js"></script>
+		<script src="scripts/config.js"></script>
+        <script src="scripts/helpers.js"></script>
+		<script src="scripts/main.js"></script>
+		<script src="scripts/templates.js"></script>
         <script src="scripts/models/user.js"></script>
+        <script src="scripts/views/app.js"></script>
+        <script src="scripts/views/settings.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.cogfor.pendulum"
+        versionCode = "10"
+        version     = "1.0.0" >
+
+    <name>Pendulum</name>
+
+	<description>
+        Pendulum - Demo Facebook Paper app
+    </description>
+
+    <author href="cogfor.com" email="rene@cogfor.com">
+        Rene Nederhand
+    </author>
+	
+	<gap:platform name="ios" />
+	<gap:platform name="android" />
+	
+	<feature name="http://api.phonegap.com/1.0/device" />
+	
+	<access origin="*" />
+	
+	<!-- ios icons -->
+	<icon src="icons/ios/Icon.png" gap:platform="ios" width="57" height="57" />
+	<icon src="icons/ios/Icon-72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="icons/ios/Icon@2x.png" gap:platform="ios" width="114" height="114" />
+	<icon src="icons/ios/Icon-72.png" gap:platform="ios" width="76" height="76" />
+	<icon src="icons/ios/Icon-120.png" gap:platform="ios" width="120" height="120" />
+	<icon src="icons/ios/Icon-152.png" gap:platform="ios" width="152" height="152" />
+	
+	<!-- android icons -->
+	<icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+	
+    <!-- ios splashes -->
+	<!--iphone retina and non -->
+	<gap:splash src="splash/ios/Default~iphone.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="splash/ios/Default@2x~iphone.png" gap:platform="ios" width="640" height="960" />
+	<!--iphone 5 -->
+	<gap:splash src="splash/ios/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
+	<!--ipad -->
+	<gap:splash src="splash/ios/Default-Portrait~ipad.png" gap:platform="ios" width="768" height="1024" />
+	<gap:splash src="splash/ios/Default-Landscape~ipad.png" gap:platform="ios" width="1024" height="768" />
+	<!--ipad retina -->
+	<gap:splash src="splash/ios/Default-Portrait@2x~ipad.png" gap:platform="ios" width="1536" height="2008" />
+	<gap:splash src="splash/ios/Default-Landscape@2x~ipad.png" gap:platform="ios" width="2048" height="1496" />
+	
+	<!-- android splashes -->
+	<gap:splash src="splash/android/320x480.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="splash/android/640x960.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="splash/android/768x1024.png" gap:platform="android" gap:density="hdpi" />
+	
+	<!-- plugins -->
+	<gap:plugin name="org.apache.cordova.inappbrowser" />
+</widget>

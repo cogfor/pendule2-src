@@ -32,14 +32,14 @@ module.exports = function (grunt) {
                 nospawn: true,
                 livereload: true
             },
-            coffee: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
-            },
+            //coffee: {
+                //files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
+                //tasks: ['coffee:dist']
+            //},
+            //coffeeTest: {
+                //files: ['test/spec/{,*/}*.coffee'],
+                //tasks: ['coffee:test']
+            //},
             livereload: {
                 options: {
                     livereload: LIVERELOAD_PORT
@@ -49,20 +49,20 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                    '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
+                    //'<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
                     'test/spec/**/*.js'
                 ]
             },
-            handlebars: {
-                files: [
-                    '<%= yeoman.app %>/scripts/templates/*.hbs'
-                ],
-                tasks: ['handlebars']
-            },
-            test: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
-                tasks: ['test:true']
-            }
+            //handlebars: {
+                //files: [
+                    //'<%= yeoman.app %>/scripts/templates/*.hbs'
+                //],
+                //tasks: ['handlebars']
+            //},
+            //test: {
+                //files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
+                //tasks: ['test:true']
+            //}
         },
         connect: {
             options: {
@@ -227,9 +227,11 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,txt}',
-                        '.htaccess',
+                        'config.xml',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
+						'icons/{,*/}*.*',
+						'splash/{,*/}*.*'
                     ]
                 }]
             }
@@ -318,7 +320,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'coffee',
+        //'coffee',
         'createDefaultTemplate',
         'handlebars',
         'useminPrepare',

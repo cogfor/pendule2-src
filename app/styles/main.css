@@ -1,2 +1,75 @@
-body {}
+body,
+#afui { background-color:#DCDEE0 !important }
 
+#afui #header { background-color:#0088D1 !important }
+
+#afui .panel { color:#53585F !important }
+
+.input-text { background:#fff !important }
+
+/* signup form */
+.form.m-signup,
+.form.m-login,
+.form.m-changepass,
+.form.m-resetpass { padding-top:10px }
+
+	/* vertical labels */
+	#afui .form_label {
+		display: block;
+		float: none;
+		margin-bottom: 3px;
+		padding: 0;
+		text-align: left;
+		width: auto;
+	}
+	
+/* settings page */
+#afui .button.m-settings {
+	background: #DCDEE0;
+	border-color: #53585F;
+	border-radius: 0;
+	border-style: none none solid;
+	border-width: 0 0 1px;
+	color: #53585F;
+	display: block;
+	font-size: 14px;
+	font-weight: 100;
+	height: 40px;
+	line-height: 40px;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	text-indent: 20px;
+	box-shadow:none;
+}
+
+#afui .button.m-first { border-top:1px solid #53585F; }
+
+body #afui .search-field {
+	color: #53585F !important;
+	display: block;
+	float: none;
+	height: 30px;
+	margin: 15px;
+	padding: 0;
+	text-indent: 10px;
+	width: 170px;
+	border-color:#53585F;
+	background:#fff !important;
+}
+
+#afui > #menu.tabletMenu { background: #DCDEE0 !important }
+
+/* hide navbar */
+#afui > #navbar { display:none !important }
+
+/* hide cancel button in popups */
+.afPopup #cancel { display:none !important }
+.afPopup #action { float:none !important }
+
+/* browser and tablets */
+@media handheld, only screen and (min-width: 768px) {
+	body #afui .search-field {
+		width: 226px;
+	}
+}

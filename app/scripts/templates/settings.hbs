@@ -1,0 +1,11 @@
+<input type="text" value="Search" class="search-field" />
+
+{{#if loggedIn}}
+	<a href="#changepass-page" class="button m-settings m-first" id="user-changepass" title="Login">Change password</a>
+	<a href="#" class="button m-settings" id="user-logout" title="Login">Logout</a>
+	
+{{else}}
+	<a href="#login-page" class="button m-settings m-first" id="user-login" title="Login">Login</a>
+	<a href="#signup-page" class="button m-settings" id="user-signup" title="Signup">Signup</a>
+	<a href="#resetpass-page" class="button m-settings" id="user-resetpass" title="Login">Reset password</a>
+{{/if}}
