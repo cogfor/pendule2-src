@@ -108,15 +108,15 @@ body {
 	z-index:250;
 	-webkit-box-sizing:border-box; box-sizing:border-box;
 	height:44px;
-    left:0; right:0;
-	
+    left:0; 
+	right:0;
+	color:#fff;
 } /* This is masthead bar that appears at the top of the UI */
 
 
 
 
 #afui #header h1 {
-	
 	position:absolute;
 	width:45%;
     z-index:1;
@@ -130,6 +130,7 @@ body {
 	text-shadow:rgba(0,0,0,0.8) 0 -1px 0;
 	text-align:center;
 	white-space:nowrap;
+	color:#fff;
 } /* This is text that appears in the header at the top of the screen */
 
 
@@ -1408,11 +1409,8 @@ body {
 	padding:7px ;
 	height:32px;
 	margin-top:5px;
+	color:#fff;
 }
-
-
-
-
 /*src/badges.css*/
 #afui .af-badge {
 	position:absolute;
@@ -1736,7 +1734,7 @@ color:inherit;
  */
 
 #afui.android {
-	font:14px  'Roboto',sans-serif;
+	font:14px 'Roboto', sans-serif;
  	background:#000;
  	color:#fff;
     border-color:#fff;
@@ -1747,29 +1745,27 @@ color:inherit;
 	color:#000;
 }
 
-#afui.android > #header {
-    background:inherit;
-    color:inherit;
+#afui > #header {
+    /*background:inherit;
+    color:inherit;*/
     border-color:#33B5E5;
 }
-#afui.android > #header h1 {
-    color:inherit;
-}
 
+/* #afui > #header h1 { color:inherit; } */
 
-#afui.android #header .button {
+#afui #header .button {
     color: inherit;
     background:none;
     font-size:14px;
     box-shadow:none;
 }
 
-#afui.android #backButton{
+#afui #backButton{
     background: inherit;
     color:inherit;
 }
 
-#afui.android .menuButton:after {
+#afui .menuButton:after {
     border-color:white;
 }
 
@@ -1867,8 +1863,8 @@ color:inherit;
 	background: #33B5E5;
 }
 
-#afui.android > #menu {
-    border-right:1px solid rgba(128,128,128,0.5);
+#afui > #menu {
+    border-right:1px solid rgba(128,128,128,0.5) !important;
 	color:inherit;
 	background:inherit;
 }
@@ -2033,11 +2029,9 @@ color:inherit;
 }
 
 /* iOS theme */
-#afui.ios {
-    color:black;
-}
+/*#afui.ios { color:black; }*/
 
-#afui.ios > #header { 
+/*#afui.ios > #header { 
     background-color:#889BB3;
     background-image:-ms-linear-gradient(top, #B3BECD 0%, #889BB3 50%, #6E84A2 51%);
     background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #B3BECD), color-stop(.5, #889BB3), color-stop(.51, #6E84A2));
@@ -2046,11 +2040,11 @@ color:inherit;
     border: 1px solid;
     border-color:#CCD2DA transparent #2D3033 transparent;
     color:white;
-} 
+} */
 
-#afui.ios #header h1 {
+/*#afui.ios #header h1 {
     text-shadow: rgba(0,0,0,0.8) 0 -1px 0;
-}
+}*/
 
 #afui.ios .af-badge {
     border:2px solid #fff;
@@ -2058,7 +2052,7 @@ color:inherit;
     line-height:18px;
 }
 #afui.ios .panel {
-    background:#e7e7e7;
+    background:#DCDEE0;
 }
 
 #afui.ios .panel h2 { color:inherit;}
@@ -2089,7 +2083,7 @@ color:inherit;
     color:#fff;
 }
 
-#afui.ios #backButton {
+/*#afui.ios #backButton {
     line-height:15px;
     width:58px;
     display:block;
@@ -2109,8 +2103,10 @@ color:inherit;
     box-shadow:0 1px 0 #9CABC0;
     margin:0 0 0 15px !important;
     padding-left:4px !important;
-} /* Sets up positioning of the back button which appears in the header */
+} */
+/* Sets up positioning of the back button which appears in the header */
 
+/*
 #afui.ios #backButton::before {
     z-index:-1;
     content:'';
@@ -2124,7 +2120,9 @@ color:inherit;
     box-shadow:1px -1px 0 #375073 inset;
     -ms-transform:rotate(45deg); -moz-transform:rotate(45deg); -webkit-transform:rotate(45deg); transform:rotate(45deg);
 }
+*/
 
+/*
 #afui.ios #header .button {
     color:#fff;
     text-shadow:0 -1px 0 #333;
@@ -2137,6 +2135,7 @@ color:inherit;
 #afui.ios #header .button.pressed {
     background-image:linear-gradient(to bottom, #6E84A2 0%, #476999 50%, #274979 51%);
 }
+*/
 
 #afui.ios #menu .list li, 
 #afui.ios #menu .list .divider, 
