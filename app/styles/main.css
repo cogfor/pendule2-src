@@ -1,7 +1,16 @@
+/* common classes */
+.hidden { display:none !important }
+
 body,
 #afui { background-color:#DCDEE0 !important }
 
 #afui #header { background-color:#0088D1 !important }
+
+/* zero height for main page header */
+#afui #header header[data-parent=main] { 
+	height:0 !important;
+	border:0 !important
+}
 
 #afui .panel { color:#53585F !important }
 
@@ -67,6 +76,82 @@ body #afui .search-field {
 .afPopup #cancel { display:none !important }
 .afPopup #action { float:none !important }
 
+/* slideshow */
+.slider {
+	height:100%;
+	position:relative;
+	overflow:hidden;
+}
+
+	.slider_wrapper {
+		position:relative;
+		/*height:100%;*/
+		overflow:hidden
+	}
+	
+	.slider_slide {
+		float:left;
+		/*width:1344px !important;*/
+		width:auto;
+		/*height:100%;*/
+		position:relative;
+	}
+	
+	.slider_image {
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index:1;
+	}
+	
+	.slider_author {
+		position:relative;
+		z-index:2;
+		padding-left:30px;
+		color:#fff;
+		font-weight:100;
+		padding-top:30px;
+		font-weight:100;
+		font-size:20px;
+	}
+	.slider_title {
+		position:relative;
+		z-index:2;
+		padding-left:30px;
+		color:#fff;
+		font-weight:700;
+		font-size:30px;
+	}
+
+
+.slider-nav {
+	position:absolute;
+	top:60%;
+	z-index:2;
+	width:300px;
+	left:50%;
+	margin-left:-150px;
+}
+
+.slider-nav_link {
+	width:20px;
+	height:20px;
+	display:block;
+	border-radius:30px;
+	background:#fff;
+	margin-right:10px;
+	float:left;
+	text-indent:-999px;
+	overflow:hidden
+}
+
+	.slider-nav_link.m-active { background:#ccc }
+	
 /* browser and tablets */
 @media handheld, only screen and (min-width: 768px) {
 	body #afui .search-field {

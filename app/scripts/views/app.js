@@ -23,10 +23,13 @@ Paperapp.Views = Paperapp.Views || {};
 			_.bindAll(this, 'signup', 'login', 'logout', 'changepass', 'resetpass');
 			
 			// starting user model
-			Paperapp.models.userModel = new Paperapp.Models.UserModel();
+			Paperapp.models.userModel = new Paperapp.Models.UserModel;
 			
 			// init settings bar
 			Paperapp.views.settingsView = new Paperapp.Views.SettingsView;
+			
+			// init slideshow
+			Paperapp.views.sliderView = new Paperapp.Views.SliderView;
 			
 			// We override the back button text to always say "Back"
 			$.ui.backButtonText = "Back";

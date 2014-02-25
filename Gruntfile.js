@@ -228,7 +228,7 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         'config.xml',
-                        'images/{,*/}*.{webp,gif}',
+                        'images/{,*/}*.{webp,gif,png,jpeg,jpg}',
                         'styles/fonts/{,*/}*.*',
 						'icons/{,*/}*.*',
 						'splash/{,*/}*.*'
@@ -252,7 +252,7 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                        //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                         '/styles/fonts/{,*/}*.*',
                     ]
                 }
@@ -324,7 +324,7 @@ module.exports = function (grunt) {
         'createDefaultTemplate',
         'handlebars',
         'useminPrepare',
-        'imagemin',
+        //'imagemin',
         'htmlmin',
         'concat',
         'cssmin',

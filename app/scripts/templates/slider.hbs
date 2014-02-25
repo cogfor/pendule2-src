@@ -1,0 +1,15 @@
+<div class="slider_wrapper">
+{{#each slides}}
+	<div class="slider_slide">
+		<span style="background-image:url(images/demopic.jpg)" class="slider_image"></span>
+		<h4 class="slider_author">{{_source.name}}</h4>
+		<h5 class="slider_title">{{_source.title}}</h5>
+	</div>
+{{/each}}
+</div>
+
+<!--div class="slider-nav" id="slider-nav">
+	{{#each slides}}
+		<a href="#" rel="{{@index}}" class="slider-nav_link {{#ifEquals @index 0}}m-active{{/ifEquals}}">{{@index}}</a>
+	{{/each}}
+</div -->

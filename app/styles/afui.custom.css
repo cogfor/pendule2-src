@@ -106,14 +106,19 @@ body {
 	overflow: hidden;
 	display:block;
 	z-index:250;
-	-webkit-box-sizing:border-box; box-sizing:border-box;
+	-webkit-box-sizing:border-box; 
+	box-sizing:border-box;
 	height:44px;
+	height:auto !important;
     left:0; 
 	right:0;
 	color:#fff;
 } /* This is masthead bar that appears at the top of the UI */
 
-
+#afui > #header  header { 
+	height:44px;
+	border-bottom:1px solid #0088D1;
+}
 
 
 #afui #header h1 {
@@ -144,8 +149,13 @@ body {
 	position:absolute;
 	top:44px;
 	bottom:49px;
-	left:0;right:0;
+	left:0;
+	right:0;
 	overflow:hidden;
+	
+	/* stretсhing the content area */
+	top:0 !important;
+	bottom:0 !important;
 } /* Accounts for positioning of the content area, which is everything below the header and above the navbar. */
 
 
@@ -160,7 +170,7 @@ body {
 	-webkit-overflow-scrolling:touch;
 	-webkit-backface-visibility: hidden;
 	-webkit-perspective: 1000;
-	padding:10px;
+	/*padding:10px; */
 	padding-top:0px;
 } /* This class is applied to the divs that contain the various "views" or pages of the app. */
 
@@ -613,7 +623,6 @@ body {
 #afui > #header{
     background:#0088D1;
     border:none;
-    border-bottom:1px solid #0088D1;
     color:white;
  }
 
