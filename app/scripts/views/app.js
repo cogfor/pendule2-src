@@ -14,13 +14,22 @@ Paperapp.Views = Paperapp.Views || {};
 			'submit #login-form' : 'login',
 			'click #user-logout' : 'logout',
 			'submit #changepass-form' : 'changepass',
-			'submit #resetpass-form' : 'resetpass'
+			'submit #resetpass-form' : 'resetpass',
+			'click #settings a' : 'settingsMenuHide',
+			
+			/* swipe events */
+			'swipeDown .slider_nav-swipe-area' : 'settingsMenuShow',
+			'swipeUp #menu' : 'settingsMenuHide',
+			'swipeUp #settings' : 'settingsMenuHide',
+			'swipeUp #settings a' : 'settingsMenuHide',
+			'swipeUp #settings input' : 'settingsMenuHide',
+			'swipeUp #menu_scroller' : 'settingsMenuHide'
 		},
 		
 		initialize : function(){
 			var self = this;
 			
-			_.bindAll(this, 'signup', 'login', 'logout', 'changepass', 'resetpass');
+			_.bindAll(this, 'signup', 'login', 'logout', 'changepass', 'resetpass', 'settingsMenuShow');
 			
 			// starting user model
 			Paperapp.models.userModel = new Paperapp.Models.UserModel;
@@ -33,7 +42,7 @@ Paperapp.Views = Paperapp.Views || {};
 			
 			// We override the back button text to always say "Back"
 			$.ui.backButtonText = "Back";
-			
+				
 			// silently login on app start
 			if (localStorage.getItem('_username') && localStorage.getItem('_password')) {
 				Paperapp.models.userModel.login({ username : localStorage.getItem('_username'), password : localStorage.getItem('_password') }, true, function(){
@@ -52,6 +61,7 @@ Paperapp.Views = Paperapp.Views || {};
 			$.ui.ready(function () {
 				console.log('app framework launched');
 				$.ui.removeFooterMenu();
+				//self.setMenuHeight();
 			});
 			
 			// wire events
@@ -143,6 +153,37 @@ Paperapp.Views = Paperapp.Views || {};
 					}
 				}
 			});
+		},
+		
+		settingsMenuShow : function(e){
+			var menu = $('#menu');
+			
+			menu.css3Animate({
+				y : 190,
+				time : 200,
+				complete : function(){
+					menu.addClass('active');
+				}
+			});
+		},
+		
+		settingsMenuHide : function(e){
+			var menu = $('#menu');
+			
+			menu.css3Animate({
+				y : 0,
+				time : 200,
+				complete : function(){
+					menu.removeClass('active');
+				}
+			});
+		},
+		
+		setMenuHeight : function() {
+			$('#menu').css('height', 'auto');
+			setTimeout(function(){
+				$('#menu').css('height', $('#menu').get(0).offsetHeight);
+			}, 0);
 		}
     });
 

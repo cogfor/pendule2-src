@@ -248,7 +248,9 @@ body {
 #afui footer, #afui header, #afui nav {	display:none; }
 
 /* Show the active header/footer/navs */
-#afui #navbar footer, #afui #menu nav, #afui #header header {display:block;}
+#afui #navbar footer, 
+#afui #menu nav, 
+#afui #header header {display:block;}
 
 #afui > #menu.tabletMenu {
 	z-index:1;
@@ -256,8 +258,9 @@ body {
 	bottom:0;
 	height:100%;
 	display:block !important;
-	position:absolute; top:0; left:0;
-	
+	position:absolute;
+	top:0; 
+	left:0;	
 }
 
 #afui > #aside_menu {
@@ -554,7 +557,9 @@ body {
 
 
 @media handheld, only screen and (min-width: 768px) {
-	#afui > #navbar.hasMenu, #afui > #header.hasMenu, #afui > #content.hasMenu  {
+	#afui > #navbar.hasMenu, 
+	#afui > #header.hasMenu, 
+	#afui > #content.hasMenu  {
 		position:absolute;
 		left:256px;
 		-webkit-transition: transform 0ms;
@@ -569,7 +574,7 @@ body {
 		
 	#afui .afMenuClose { display:none !important;	}
 
-	#afui > #menu.tabletMenu {
+	/*#afui > #menu.tabletMenu {
 		z-index:200 !important;
 		width:256px !important;
 		bottom:0;
@@ -581,7 +586,7 @@ body {
 		-webkit-transition:none !important;
 		transform:translate(0px,0px) !important;
 		transition:none !important;
-	}
+	}*/
 	
 	#afui .menuButton { display:none;	}
 }
@@ -777,11 +782,11 @@ body {
     background: #33B5E5;
 }
 
-#afui > #menu.tabletMenu {
+/*#afui > #menu.tabletMenu {
     color:white;
     background:#00AEEF;
     border-right:1px solid #006BA4;
-}
+}*/
 
 #afui #menu .list li,#afui #menu .list .divider,#afui #menu .list li:last-child {
     border-color: #4CC6F4;
@@ -2086,11 +2091,11 @@ color:inherit;
     color:#3a9de2;
 }
 
-#afui.ios > #menu.tabletMenu {
+/*#afui.ios > #menu.tabletMenu {
    border-right:none;
     background:#000;
     color:#fff;
-}
+}*/
 
 /*#afui.ios #backButton {
     line-height:15px;

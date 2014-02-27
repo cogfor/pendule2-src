@@ -20,7 +20,10 @@ body,
 .form.m-signup,
 .form.m-login,
 .form.m-changepass,
-.form.m-resetpass { padding-top:10px }
+.form.m-resetpass { 
+	padding-top:60px;
+	padding-left:20px;
+}
 
 	/* vertical labels */
 	#afui .form_label {
@@ -151,6 +154,27 @@ body #afui .search-field {
 }
 
 	.slider-nav_link.m-active { background:#ccc }
+
+/* trigger for nav area */
+.slider_nav-swipe-area {
+	display: block;
+	height: 20%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+	
+/* vertical menu */
+#afui > #menu.tabletMenu {
+	height:190px;
+	height:auto;
+	width:100%;
+	top:-190px;
+	z-index:190;
+	bottom:auto;
+}
 	
 /* browser and tablets */
 @media handheld, only screen and (min-width: 768px) {
