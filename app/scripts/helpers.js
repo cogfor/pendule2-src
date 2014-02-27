@@ -17,6 +17,13 @@ Handlebars.registerHelper('ifEquals', function(v1, v2, options) {
 	return options.inverse(this);
 });
 
+Handlebars.registerHelper('ifDivisionEquals', function(v1, v2, v3, options) {
+	if((v1 + 1) % v2 == v3) {
+		return options.fn(this);
+	}
+	return options.inverse(this);
+});
+
 Handlebars.registerHelper('ifObjProp', function(object, prop, options) {
 	if (object && object[prop]) {
 		return options.fn(this);

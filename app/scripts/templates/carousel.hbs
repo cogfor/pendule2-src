@@ -1,0 +1,13 @@
+<div class="carousel_wrapper">
+{{#each slides}}
+	{{#ifDivisionEquals @index 3 1}}
+		<div class="carousel_slide">
+	{{/ifDivisionEquals}}
+		
+		<span style="background-image:url(images/demopic.jpg)" class="carousel_image {{#ifDivisionEquals @index 3 0}}m-last{{/ifDivisionEquals}}"></span>
+		
+	{{#ifDivisionEquals @index 3 0}}
+		</div>
+	{{/ifDivisionEquals}}
+{{/each}}
+</div>

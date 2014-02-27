@@ -1,20 +1,19 @@
-/* common classes */
-.hidden { display:none !important }
-
+/* color scheme */
 body,
 #afui { background-color:#DCDEE0 !important }
-
 #afui #header { background-color:#0088D1 !important }
+#afui .panel { color:#53585F !important }
+.input-text { background:#fff !important }
 
 /* zero height for main page header */
-#afui #header header[data-parent=main] { 
+#afui #header header[data-parent=main] {
 	height:0 !important;
 	border:0 !important
 }
 
-#afui .panel { color:#53585F !important }
 
-.input-text { background:#fff !important }
+/* common classes */
+.hidden { display:none !important }
 
 /* signup form */
 .form.m-signup,
@@ -36,6 +35,15 @@ body,
 	}
 	
 /* settings page */
+/* making it vertical */
+#afui > #menu.tabletMenu {
+	height:190px;
+	height:auto;
+	width:100%;
+	top:-190px;
+	z-index:190;
+	bottom:auto;
+}
 #afui .button.m-settings {
 	background: #DCDEE0;
 	border-color: #53585F;
@@ -55,6 +63,8 @@ body,
 	box-shadow:none;
 }
 
+#afui > #menu.tabletMenu { background: #DCDEE0 !important }
+
 #afui .button.m-first { border-top:1px solid #53585F; }
 
 body #afui .search-field {
@@ -69,8 +79,6 @@ body #afui .search-field {
 	border-color:#53585F;
 	background:#fff !important;
 }
-
-#afui > #menu.tabletMenu { background: #DCDEE0 !important }
 
 /* hide navbar */
 #afui > #navbar { display:none !important }
@@ -94,9 +102,7 @@ body #afui .search-field {
 	
 	.slider_slide {
 		float:left;
-		/*width:1344px !important;*/
 		width:auto;
-		/*height:100%;*/
 		position:relative;
 	}
 	
@@ -131,7 +137,7 @@ body #afui .search-field {
 		font-size:30px;
 	}
 
-
+/* slider navigation */
 .slider-nav {
 	position:absolute;
 	top:60%;
@@ -141,21 +147,21 @@ body #afui .search-field {
 	margin-left:-150px;
 }
 
-.slider-nav_link {
-	width:20px;
-	height:20px;
-	display:block;
-	border-radius:30px;
-	background:#fff;
-	margin-right:10px;
-	float:left;
-	text-indent:-999px;
-	overflow:hidden
-}
+	.slider-nav_link {
+		width:20px;
+		height:20px;
+		display:block;
+		border-radius:30px;
+		background:#fff;
+		margin-right:10px;
+		float:left;
+		text-indent:-999px;
+		overflow:hidden
+	}
 
 	.slider-nav_link.m-active { background:#ccc }
 
-/* trigger for nav area */
+/* trigger for main menu it's included in each slide in slider */
 .slider_nav-swipe-area {
 	display: block;
 	height: 20%;
@@ -166,15 +172,51 @@ body #afui .search-field {
 	z-index: 10;
 }
 	
-/* vertical menu */
-#afui > #menu.tabletMenu {
-	height:190px;
-	height:auto;
-	width:100%;
-	top:-190px;
-	z-index:190;
-	bottom:auto;
+/* carousel */
+.carousel {
+	position:absolute;
+	overflow:hidden;
+	bottom:0;
+	left:0;
+	width:98%;
+	margin:0 1% 1%;
 }
+
+	.carousel_wrapper {
+		position:relative;
+		overflow:hidden;
+		height:140px;
+	}
+	
+	.carousel_slide {
+		float:left;
+		position:relative !important;
+		width:100%;
+		position:relative;
+		/*margin-right:1%;*/
+		height:140px;
+		left:0 !important;
+	}
+		
+		.carousel_image.m-last { margin-right:0; }
+	
+	.carousel_image {
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		width: 32.6%;
+		z-index:1;
+		margin-right:1%;
+		float:left;
+		
+		/*
+		left: 0;
+		position: absolute;
+		top: 0;
+		*/
+	}
+	
 	
 /* browser and tablets */
 @media handheld, only screen and (min-width: 768px) {

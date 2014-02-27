@@ -9,3 +9,7 @@ App dependencies:
 - Intel App Framework (bower install intel-appframework)
 - Backbone and Underscore
 - Handlebars
+
+More Grunt and Yeoman commands:
+- grunt handlebars - compiles all templates, this command should be run after each template change (commented out from grunt build, but can be restored)
+- yo backbone:view/model/collection "name" - creates new view/model/collection and automatically wires them into index.html file

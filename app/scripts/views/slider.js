@@ -3,7 +3,6 @@
 Paperapp.Views = Paperapp.Views || {};
 
 (function () {
-    //'use strict';
 
     Paperapp.Views.SliderView = Backbone.View.extend({
 		el : '#slider', 
@@ -50,12 +49,6 @@ Paperapp.Views = Paperapp.Views || {};
 					pagingCssNameSelected : 'slider-nav_link m-active'
 				});
 			}, 0);
-			
-			/*
-			self.swipe = new Swipe(self.$el.find('.slider_wrapper').get(), {
-				callback : function(event, id, panel){}
-			});
-			*/
 		}
     });
 

@@ -40,6 +40,9 @@ Paperapp.Views = Paperapp.Views || {};
 			// init slideshow
 			Paperapp.views.sliderView = new Paperapp.Views.SliderView;
 			
+			// init carousel
+			Paperapp.views.carouselView = new Paperapp.Views.CarouselView;
+			
 			// We override the back button text to always say "Back"
 			$.ui.backButtonText = "Back";
 				
