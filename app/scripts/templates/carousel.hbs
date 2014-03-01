@@ -1,13 +1,23 @@
 <div class="carousel_wrapper">
 {{#each slides}}
 	{{#ifDivisionEquals @index 3 1}}
-		<div class="carousel_slide">
+		<!-- div class="carousel_slide" -->
 	{{/ifDivisionEquals}}
 		
-		<span style="background-image:url(images/demopic.jpg)" class="carousel_image {{#ifDivisionEquals @index 3 0}}m-last{{/ifDivisionEquals}}"></span>
+		{{#ifDivisionEquals @index 3 0}}
+			<a href="#" style="background-image:url(images/demopic-small-1.jpg)" class="carousel_image" data-id="{{id}}"></a>
+		{{/ifDivisionEquals}}
+		
+		{{#ifDivisionEquals @index 3 1}}
+			<a href="#" style="background-image:url(images/demopic-small-2.jpg)" class="carousel_image"></a>
+		{{/ifDivisionEquals}}
+		
+		{{#ifDivisionEquals @index 3 2}}
+			<a href="#" style="background-image:url(images/demopic-small-3.jpg)" class="carousel_image"></a>
+		{{/ifDivisionEquals}}
 		
 	{{#ifDivisionEquals @index 3 0}}
-		</div>
+		<!-- /div -->
 	{{/ifDivisionEquals}}
 {{/each}}
 </div>

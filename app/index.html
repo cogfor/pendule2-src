@@ -27,7 +27,9 @@
 					<div class="slider" id="slider"></div>
 					<div class="slider-nav" id="slider-nav"></div>
 					
-					<div id="carousel" class="carousel"></div>
+					<div id="carousel" class="carousel">
+						<div class="carousel_wrapper"></div>
+					</div>
 					
 					<h2 class="username hidden"></h2>
 				</div>
@@ -105,6 +107,7 @@
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/handlebars/handlebars.js"></script>
 		<script src="scripts/vendor/underscore.def.js"></script>
+		<script src="scripts/vendor/iscroll-lite.min.js"></script>
 		<script src="scripts/vendor/base64.js"></script>
         <!-- endbuild -->
 	
@@ -121,6 +124,8 @@
         <script src="scripts/models/document.js"></script>
 		<script src="scripts/collections/documents.js"></script>
         <script src="scripts/views/carousel.js"></script>
+        <script src="scripts/views/full-page.js"></script>
+        <script src="scripts/views/carousel-slide.js"></script>
         <!-- endbuild -->
 </body>
 </html>

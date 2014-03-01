@@ -39,6 +39,9 @@ window.Paperapp = {
 		$.os.android = true;
 		$.os.desktop = true;
 		
+		//emulate phonegap platform property
+		window.device = { platform : 'Android' };
+		
 		// phonegap device ready won't fire in browser, so we have to do it manually
 		phonegapLoadedDef.resolve();
 	}

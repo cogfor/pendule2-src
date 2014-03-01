@@ -14,6 +14,8 @@ Paperapp.Views = Paperapp.Views || {};
 		initialize : function(){
 			var self = this;
 			
+			self.wrapper = self.$el.find('.carousel_wrapper');
+			
 			Paperapp.collections.carouselDocuments = new Paperapp.Collections.DocumentsCollection({
 				source : { 					
 					"query" : {
@@ -36,28 +38,58 @@ Paperapp.Views = Paperapp.Views || {};
 			
 			Paperapp.collections.carouselDocuments.bind('reset', function(){
 				self.render();
+				
+				// set strict width and margin to carousel images and then make container scrollable
+				setTimeout(function(){
+					var firstImg = self.$el.find('.carousel_slide').eq(0);
+					
+					self.$el.find('.carousel_slide').css({
+						width : firstImg.get(0).offsetWidth,
+						marginRight : firstImg.css('marginRight')
+					});
+					
+					self.$el.addClass('m-visible');
+					
+					if (device && device.platform && device.platform === 'Android') {
+						
+						document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+						myScroll = new IScroll('#carousel', {
+							scrollX : true,
+							scrollY : false,
+							keyBindings : true
+						});
+					}
+					
+					/*self.wrapper.carousel({
+						//pagingDiv : 'slider-nav',
+						//pagingCssName : 'slider-nav_link',
+						//pagingCssNameSelected : 'slider-nav_link m-active'
+					});*/
+					
+				}, 0);
+				
 			});
 		},
 		
 		render : function(){
 			var self = this;
-			
-			self.$el.html(self.template({
-				slides : Paperapp.collections.carouselDocuments.toJSON()
-			}));
-			
-			setTimeout(function(){
-				self.wrapper = self.$el.find('.carousel_wrapper');
-				console.log(self.$el.html());
 				
-				self.wrapper.carousel({
-					//pagingDiv : 'slider-nav',
-					//pagingCssName : 'slider-nav_link',
-					//pagingCssNameSelected : 'slider-nav_link m-active'
+			Paperapp.views.carouselSlides = [];
+			
+			Paperapp.collections.carouselDocuments.each(function(model, index){
+				var view = new Paperapp.Views.CarouselSlideView({
+					model : model
 				});
-			}, 0);
+				
+				self.wrapper.append(view.$el);
+				Paperapp.views.carouselSlides.push(view);
+			});
+			
+			/*self.$el.html(self.template({
+				slides : Paperapp.collections.carouselDocuments.toJSON()
+			}));*/
 		}
-
+		
     });
 
 })();
