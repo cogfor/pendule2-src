@@ -46,6 +46,9 @@ Paperapp.Views = Paperapp.Views || {};
 			// We override the back button text to always say "Back"
 			$.ui.backButtonText = "Back";
 				
+			// do not load page to another panel then main
+			$.ui.loadDefaultHash = false;
+				
 			// silently login on app start
 			if (localStorage.getItem('_username') && localStorage.getItem('_password')) {
 				Paperapp.models.userModel.login({ username : localStorage.getItem('_username'), password : localStorage.getItem('_password') }, true, function(){
@@ -109,6 +112,7 @@ Paperapp.Views = Paperapp.Views || {};
 			Paperapp.models.userModel.on('passwordUpdated', function(loginData){
 				Paperapp.models.userModel.login({ username : localStorage.getItem('_username'), password : localStorage.getItem('_password') }, true);
 			});
+			
 		},
 		
 		signup : function(e){

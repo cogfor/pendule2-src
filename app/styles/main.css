@@ -180,33 +180,44 @@ body #afui .search-field {
 	height: 150px;
 	left: -9999px;
 	margin: 0 1% 1%;
-	overflow: scroll;
+	z-index:1;
+	overflow: hidden;
 	position: absolute;
 	width: 98%;
-	-webkit-overflow-scrolling:touch !important;
+	/*-webkit-overflow-scrolling:touch;*/
 }
 	
-	.carousel.m-visible { left:0; }
+	.carousel.m-visible { left:0; }	
+
+	.carousel_container {}
 	
 	.carousel_wrapper {
-		position:absolute;
-		left:0;
-		top:0;
 		width:100%;
 		height:150px;
+		/*overflow:hidden;*/
 		
-		overflow:scroll;
+		position: absolute;
+		z-index: 1;
 		
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
 		-webkit-transform: translateZ(0);
 		-moz-transform: translateZ(0);
 		-ms-transform: translateZ(0);
 		-o-transform: translateZ(0);
 		transform: translateZ(0);
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		-webkit-text-size-adjust: none;
+		-moz-text-size-adjust: none;
+		-ms-text-size-adjust: none;
+		-o-text-size-adjust: none;
+		text-size-adjust: none;
 	}
 	
-		.carousel.m-visible .carousel_wrapper {
-			width:2000em;
-		}
+		/*.carousel.m-visible .carousel_wrapper { width:2000em; } */
 	
 	.carousel_slide {
 		float:left;
@@ -278,6 +289,6 @@ body #afui .search-field {
 	
 	.carousel,
 	.carousel_wrapper,
-	.carousel_slide
+	.carousel_slide,
 	.carousel_image { height:400px }
 }
