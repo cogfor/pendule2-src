@@ -7,7 +7,7 @@ Paperapp.Views = Paperapp.Views || {};
 
     Paperapp.Views.CarouselSlideView = Backbone.View.extend({
 		
-		className : 'carousel_slide',
+		className : 'carousel_doc',
 		
 		tagName : 'div',
 		
@@ -19,16 +19,20 @@ Paperapp.Views = Paperapp.Views || {};
 			'swipeUp' : 'expand'
 		},
 		
-		initialize : function(){
-			this.render();
+		initialize : function(options){
 			_.bindAll(this, 'expand');
 			
+			this.render();
 			Paperapp.views.fullPages = [];
+			
+			if (options.isLast) {
+				this.$el.addClass('m-last');
+			}		
 		},
 		
 		render : function(){
 			this.$el.html(this.template({
-				
+				isLast : this.isLast
 			}));
 		},
 		

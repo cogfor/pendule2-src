@@ -14,7 +14,7 @@ Paperapp.Views = Paperapp.Views || {};
 		initialize : function(){
 			var self = this;
 			
-			self.wrapper = self.$el.find('.carousel_container');
+			self.wrapper = self.$el.find('.carousel_wrapper');
 			
 			Paperapp.collections.carouselDocuments = new Paperapp.Collections.DocumentsCollection({
 				source : { 					
@@ -41,32 +41,41 @@ Paperapp.Views = Paperapp.Views || {};
 				
 				// set strict width and margin to carousel images and then make container scrollable
 				setTimeout(function(){
-					var firstImg = self.$el.find('.carousel_slide').eq(0),
-						width = firstImg.get(0).offsetWidth,
-						margin = parseInt(firstImg.css('marginRight'), 10),
-						totalWidth = 0;
+					var firstSlide = self.$el.find('.carousel_slide').eq(0),
+						slideWidth = firstSlide.get().offsetWidth,
+						margin = parseInt(firstSlide.css('marginRight'), 10),
+						//totalWidth = self.$el.find('.carousel_slide').length * (slideWidth + margin);
+						totalWidth = self.el.offsetWidth;
 					
 					self.$el.find('.carousel_slide').css({
-						width : width,
-						marginRight : margin
+						width : totalWidth
+						//marginRight : margin
 					});
-					
-					totalWidth = self.$el.find('.carousel_slide').length * (width + margin);
 					
 					self.$el.addClass('m-visible');
 					
-					self.$el.find('.carousel_wrapper').css('width', totalWidth);
-					
+					self.$el.css('width', totalWidth);
 					
 					//if (device && device.platform && device.platform === 'Android') {
-					setTimeout(function(){	
-						myScroll = new IScroll('#carousel', {
-							eventPassthrough: true, 
+					setTimeout(function(){
+							
+						
+						
+						//$('#carousel, ,carousel_wrapper').unbind();
+						
+						/*myScroll = new IScroll('#carousel', {
+							eventPassthrough: false,
 							scrollX: true, 
 							scrollY: false
-						});
+						});*/
 								
 						//$.ui.addDivAndScroll($('#carousel').get());
+						
+						var mySwiper = new Swiper('#' + self.el.id, {
+							//mode:'horizontal',
+							freeMode: true,
+							freeModeFluid: true
+						}); 
 						
 					}, 100);
 						
@@ -76,17 +85,28 @@ Paperapp.Views = Paperapp.Views || {};
 		},
 		
 		render : function(){
-			var self = this;
+			var self = this,
+				wrapperTmpl = $('<div class="carousel_slide swiper-slide" />'),
+				wrapper;
 				
 			Paperapp.views.carouselSlides = [];
 			
 			Paperapp.collections.carouselDocuments.each(function(model, index){
 				var view = new Paperapp.Views.CarouselSlideView({
-					model : model
+					model : model,
+					isLast : ((index + 1) % 3 == 0)
 				});
-				
-				self.wrapper.append(view.$el);
 				Paperapp.views.carouselSlides.push(view);
+				
+				if ((index + 1) % 3 == 1) {
+					wrapper = wrapperTmpl.clone();
+				}
+				
+				wrapper.append(view.$el);
+				
+				if ((index + 1) % 3 == 0 || (index + 1) == Paperapp.collections.carouselDocuments.length) {
+					self.wrapper.append(wrapper);
+				}
 			});
 		}
 		
