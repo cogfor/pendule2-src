@@ -55,9 +55,11 @@ Paperapp.Views = Paperapp.Views || {};
 				left : this.$el.offset().left
 			});
 			
+			//alert(this.$el.offset().top, this.$el.offset().left);
+			
 			setTimeout(function(){
 				self.fullPageView.open();
-			}, 0);
+			}, 100);
 		}
 
     });

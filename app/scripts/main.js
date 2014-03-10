@@ -32,9 +32,9 @@ window.Paperapp = {
 	// include browser plugin from App Framework
 	if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
 		
-		/*browserScript = document.createElement("script");
+		browserScript = document.createElement("script");
 		browserScript.src = "bower_components/intel-appframework/plugins/af.desktopBrowsers.js";
-		browserScriptTag = $("head").append(browserScript);*/
+		browserScriptTag = $("head").append(browserScript);
 		
 		$.os.android = true;
 		$.os.desktop = true;
