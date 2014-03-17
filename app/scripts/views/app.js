@@ -16,6 +16,7 @@ Paperapp.Views = Paperapp.Views || {};
 			'submit #changepass-form' : 'changepass',
 			'submit #resetpass-form' : 'resetpass',
 			'click #settings a' : 'settingsMenuHide',
+			'submit .search-form' : 'search',
 			
 			/* swipe events */
 			'swipeDown .slider_nav-swipe-area' : 'settingsMenuShow',
@@ -29,7 +30,7 @@ Paperapp.Views = Paperapp.Views || {};
 		initialize : function(){
 			var self = this;
 			
-			_.bindAll(this, 'signup', 'login', 'logout', 'changepass', 'resetpass', 'settingsMenuShow');
+			_.bindAll(this, 'signup', 'login', 'logout', 'changepass', 'resetpass', 'settingsMenuShow', 'search');
 			
 			// starting user model
 			Paperapp.models.userModel = new Paperapp.Models.UserModel;
@@ -113,6 +114,8 @@ Paperapp.Views = Paperapp.Views || {};
 				Paperapp.models.userModel.login({ username : localStorage.getItem('_username'), password : localStorage.getItem('_password') }, true);
 			});
 			
+			self.$el.find('.search-field').lurk()
+			
 		},
 		
 		signup : function(e){
@@ -186,11 +189,24 @@ Paperapp.Views = Paperapp.Views || {};
 			});
 		},
 		
-		setMenuHeight : function() {
+		setMenuHeight : function(){
 			$('#menu').css('height', 'auto');
 			setTimeout(function(){
 				$('#menu').css('height', $('#menu').get(0).offsetHeight);
 			}, 0);
+		},
+		
+		search : function(e){
+			var form = $(e.currentTarget),
+				formField = form.find('.search-field');
+			
+			e.preventDefault();
+			
+			if (formField.val().length > 0 && ! formField.hasClass('lurk')) {
+				Paperapp.views.searchView = new Paperapp.Views.SearchView({
+					query : formField.val()
+				});
+			}
 		}
     });
 

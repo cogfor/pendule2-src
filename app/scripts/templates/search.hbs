@@ -1,0 +1,7 @@
+<ul class="search-results">
+{{#each results}}
+	<li class="search-results__li {{#ifDivisionEquals @index 3 0}}m-last{{/ifDivisionEquals}}" style="background-image:url(images/demopic-small-{{{random 3}}}.jpg)">
+		<!-- {{_source.author}} - <i>{{_source.title}}</i> -->
+	</li>
+{{/each}}
+</ul>
