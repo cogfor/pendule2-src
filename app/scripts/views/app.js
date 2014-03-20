@@ -68,7 +68,9 @@ Paperapp.Views = Paperapp.Views || {};
 			$.ui.ready(function () {
 				console.log('app framework launched');
 				$.ui.removeFooterMenu();
-				//self.setMenuHeight();
+				
+				// restrict height of the main page
+				$('#main').css('height', $(window).height());
 			});
 			
 			// wire events

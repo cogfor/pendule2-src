@@ -58,8 +58,6 @@ Paperapp.Views = Paperapp.Views || {};
 					
 					//if (device && device.platform && device.platform === 'Android') {
 					setTimeout(function(){
-							
-						
 						
 						//$('#carousel, ,carousel_wrapper').unbind();
 						

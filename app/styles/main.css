@@ -2,7 +2,7 @@
 body,
 #afui { background-color:#DCDEE0 !important }
 #afui #header { background-color:#0088D1 !important }
-#afui .panel { color:#53585F !important }
+#afui .panel { color:#53585F !important;  }
 .input-text { background:#fff !important }
 
 /* zero height for main page header */
@@ -46,6 +46,10 @@ body,
 	z-index:190;
 	bottom:auto;
 }
+
+#afui  #menu,
+#menu_scroller { background: #DCDEE0 !important }
+
 #afui .button.m-settings {
 	background: #DCDEE0;
 	border-color: #53585F;
@@ -64,8 +68,6 @@ body,
 	text-indent: 20px;
 	box-shadow:none;
 }
-
-#afui > #menu.tabletMenu { background: #DCDEE0 !important }
 
 #afui .button.m-first { border-top:1px solid #53585F; }
 
@@ -111,12 +113,13 @@ body #afui .search-field {
 	height:100%;
 	position:relative;
 	overflow:hidden;
+	z-index:1;
 }
 
 	.slider_wrapper {
 		position:relative;
 		/*height:100%;*/
-		overflow:hidden
+		overflow:hidden;
 	}
 	
 	.slider_slide {
@@ -210,7 +213,9 @@ body #afui .search-field {
 	/*-webkit-overflow-scrolling:touch;*/
 }
 	
-	.carousel.m-visible { left:0; }	
+	.carousel.m-visible { 
+		left:0;
+	}
    	
 	.carousel_wrapper {
 		width:100%;

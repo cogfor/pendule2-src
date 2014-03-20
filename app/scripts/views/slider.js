@@ -40,8 +40,10 @@ Paperapp.Views = Paperapp.Views || {};
 			
 			setTimeout(function(){
 				self.wrapper = self.$el.find('.slider_wrapper');
+				
 				self.wrapper.css('width', $(window).width());
 				self.wrapper.css('height', $(window).height());
+				self.$el.css('height', $(window).height());
 				
 				self.wrapper.carousel({
 					pagingDiv : 'slider-nav',
